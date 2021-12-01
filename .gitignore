@@ -1,0 +1,7 @@
+# auto-generated compilation database
+*compile_commands.json
+
+# lsp-compliant server for C/C++/Objective-C
+*.ccls-root
+*.ccls-cache
+
