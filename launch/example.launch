@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <!-- By default, we are not in debug mode -->
+  <arg name="debug" default="false" />
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+  <arg     if="$(arg debug)" name="launch_prefix" value="gdb --args" />
+
+  <!-- Load robot -->
+  <include file="$(find moveit_resources_panda_moveit_config)/launch/demo.launch">
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+
+  <!-- Launch node -->
+  <node name="example" pkg="moveit_debug" type="run_example" output="screen" clear_params="true" required="true" launch-prefix="$(arg launch_prefix)"/>
+
+</launch>
